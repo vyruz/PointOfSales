@@ -1,4 +1,3 @@
-
 class Order:
     __items = [] #list of menu items on the order
     def __init__(self, ID):
@@ -18,6 +17,8 @@ class Order:
         self.__items.remove(item)
     def getItems(self):
         return self.__items
+    def getID(self):
+        return self.orderID
     def split(self, num):
         if num > 0:
             return self.calculateBill() / num
