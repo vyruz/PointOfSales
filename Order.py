@@ -15,12 +15,12 @@ class Order:
     def addItem(self, item):
         self.__items.append(item)
     def removeItem(self, item):
-        self.items.remove(item)
+        self.__items.remove(item)
     def getItems(self):
         return self.__items
     def split(self, num):
         if num > 0:
-            return calculateBill() / num
+            return self.calculateBill() / num
         else:
-            return calculateBill()
+            return self.calculateBill()
 
