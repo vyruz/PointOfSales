@@ -4,6 +4,7 @@ item1 = FoodItem('Burrito',-.10,'Guac',True, True)
 print item1.getName()
 item2 = Appetizer('Sampler',5,'',True,True)
 print item2.getPrice()
+item3 = DrinkItem('Water', 0,'free', False)
 
 # Order tests
 order1 = Order(0)
