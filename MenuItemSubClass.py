@@ -22,8 +22,24 @@ class Dessert(FoodItem):
 	pass
 class DrinkItem(MenuItem):
 	def __init__ (self, name, price, comments):
-		pass
+		self.name = name
+		self.setPrice(price)
+		self.avail = True
+		self.comments = ""
+
 class SoftDrink(DrinkItem):
-	pass
+	#why do we need a separate class for this?
+	def __init__ (self, name, price, comments):
+		self.name = name
+		self.setPrice(price)
+		self.avail = True
+		self.comments = ""
+
 class HardDrink(DrinkItem):
-	pass
+	self.abv = 0
+	def __init__ (self, name, price, abv, comments):
+		self.name = name
+		self.setPrice(price)
+		self.abv = abv
+		self.avail = True
+		self.comments = ""
