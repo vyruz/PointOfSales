@@ -19,6 +19,10 @@ class Order:
         return self.__items
     def getID(self):
         return self.orderID
+    def printItems(self):
+        print "Order", self.getID()
+        for item in self.getItems():
+            print "   ", item.getName()
     def split(self, num):
         if num > 0:
             return self.calculateBill() / num
