@@ -1,5 +1,8 @@
-class Order(orderID):
+
+class Order:
     __items = [] #list of menu items on the order
+    def __init__(self, ID):
+        self.orderID = ID
 
     # returns total cost of bill, including tax
     def calculateBill(self):
@@ -9,12 +12,15 @@ class Order(orderID):
             total += item.getPrice()
         return total * tax 
 
-    def addItem(item):
+    def addItem(self, item):
         self.__items.append(item)
-    def removeItem(item):
+    def removeItem(self, item):
         self.items.remove(item)
-    def split(num):
+    def getItems(self):
+        return self.__items
+    def split(self, num):
         if num > 0:
             return calculateBill() / num
         else:
             return calculateBill()
+

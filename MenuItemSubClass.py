@@ -36,7 +36,7 @@ class SoftDrink(DrinkItem):
 		self.comments = ""
 
 class HardDrink(DrinkItem):
-	self.abv = 0
+	abv = 0
 	def __init__ (self, name, price, abv, comments):
 		self.name = name
 		self.setPrice(price)
