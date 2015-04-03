@@ -4,7 +4,7 @@ class FoodItem(MenuItem):
 		self.name = name
 		self.setPrice(price)
 		self.avail = True
-		self.comments = ""
+		self.comments = comments
 		self.glutenfree = GF
 		self.vegetarian = Veg
 
@@ -14,7 +14,7 @@ class FoodItem(MenuItem):
 	def getVegetarian(self):
 		return self.vegetarian
 
-class Entre(FoodItem):
+class Entree(FoodItem):
 	pass
 class Appetizer(FoodItem):
 	pass

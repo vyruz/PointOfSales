@@ -1,3 +1,4 @@
+from MenuItemSubClass import *
 class Order:
     #__items = [] #list of menu items on the order
     def __init__(self, ID):
@@ -21,9 +22,17 @@ class Order:
     def getID(self):
         return self.orderID
     def printItems(self):
-        print "Order", self.getID()
+        print "Order", self.getID(),":"
         for item in self.getItems():
-            print "   ", item.getName()
+            if(isinstance(item, FoodItem)):
+                print "   ",item.__class__.__name__,"-",item.getName(),"- $"+str(item.getPrice())
+                if(item.getComments()!=""):
+                    print"          ",item.getComments()
+            if(isinstance(item, DrinkItem)):
+                print "   ","Drink","-",item.getName(),"- $"+str(item.getPrice())
+                if(item.getComments()!=""):
+                    print "          ",item.getComments()
+
     def split(self, num):
         if num > 0:
             return self.calculateBill() / num
