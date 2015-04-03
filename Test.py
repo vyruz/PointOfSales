@@ -12,7 +12,7 @@ order2 = Order(1)
 order1.addItem(item1)
 order1.addItem(item1)
 
-print("_"*80)
+print("|"*140)
 order1.printItems()
 order2.printItems()
 print ("Order 1 Total $" +str(order1.calculateBill()))

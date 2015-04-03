@@ -14,7 +14,6 @@ class Order:
     def addItem(self, item):
         #Adding an item to one order adds it to an other one. 
         self.__items.append(item)
-        print("Adding "+str(item)+"To "+str(self))
     def removeItem(self, item):
         self.__items.remove(item)
     def getItems(self):
