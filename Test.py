@@ -1,6 +1,6 @@
 from MenuItemSubClass import *
 from Order import *
-item1 = FoodItem('Burrito',-.10,'Guac',True, True)
+item1 = FoodItem('Burrito',10,'Guac',True, True)
 print item1.getName()
 item2 = Appetizer('Sampler',5,'',True,True)
 print item2.getPrice()
@@ -9,12 +9,12 @@ item3 = DrinkItem('Water', 0,'free')
 # Order tests
 order1 = Order(0)
 order2 = Order(1)
-order1.addItem(item2)
 order1.addItem(item1)
 order1.addItem(item1)
-order2.addItem(item2)
+
+print("_"*80)
 order1.printItems()
-order1.removeItem(item1)
-print order1.split(2)
-print order2.calculateBill()
+order2.printItems()
+print ("Order 1 Total $" +str(order1.calculateBill()))
+print ("Order 2 Total $" +str(order2.calculateBill()))
 
