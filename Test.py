@@ -1,9 +1,9 @@
 from MenuItemSubClass import *
 from Order import *
 item1 = Entree('Burrito',10,'Guac',True, True)
-print item1.getName()
+#print item1.getName()
 item2 = Appetizer('Sampler',5,'',True,True)
-print item2.getPrice()
+#print item2.getPrice()
 item3 = SoftDrink('Water', 0,'')
 item4 = HardDrink("Pina Coloda",6,30,"Extra coconutty")
 item5 = HardDrink("Corona",4,15,"3 limes on bottle")
@@ -20,9 +20,9 @@ order1.addItem(item5)
 order1.addItem(item6)
 
 
-print("|"*140)
-order0.printItems()
-order1.printItems()
-print ("Order 0 Total $" +str(order0.calculateBill()))
-print ("Order 1 Total $" +str(order1.calculateBill()))
+#print("|"*140)
+#order0.printItems()
+#order1.printItems()
+#print ("Order 0 Total $" +str(order0.calculateBill()))
+#print ("Order 1 Total $" +str(order1.calculateBill()))
 
