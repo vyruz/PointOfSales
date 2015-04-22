@@ -4,6 +4,7 @@ class Order:
     def __init__(self, ID):
         self.orderID = ID
         self.__items = [] 
+
     # returns total cost of bill, including tax
     def calculateBill(self):
         total = 0
@@ -13,25 +14,31 @@ class Order:
         return total * tax 
 
     def addItem(self, item):
-        #Adding an item to one order adds it to an other one. 
         self.__items.append(item)
+
     def removeItem(self, item):
         self.__items.remove(item)
+
     def getItems(self):
         return self.__items
+
     def getID(self):
         return self.orderID
+
     def printItems(self):
-        print "Order", self.getID(),":"
+        #instead of printing, concatenate a string
+        output = "Order " + self.getID() + ":\n"
+        #print output #"Order", self.getID(),":"
         for item in self.getItems():
             if(isinstance(item, FoodItem)):
-                print "   ",item.__class__.__name__,"-",item.getName(),"- $"+str(item.getPrice())
+                output = output+ "   "+item.__class__.__name__+" - "+item.getName()+" - $"+str(item.getPrice())+"\n"
                 if(item.getComments()!=""):
-                    print"          ",item.getComments()
+                    output = output+"          "+item.getComments()+"\n"
             if(isinstance(item, DrinkItem)):
-                print "   ","Drink","-",item.getName(),"- $"+str(item.getPrice())
+                output = output+"   "+"Drink"+" - "+item.getName()+" - $"+str(item.getPrice())+"\n"
                 if(item.getComments()!=""):
-                    print "          ",item.getComments()
+                    output = output+"          "+item.getComments()+"\n"
+        return output
 
     def split(self, num):
         if num > 0:
