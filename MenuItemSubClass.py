@@ -14,7 +14,7 @@ class FoodItem(MenuItem):
 	def getVegetarian(self):
 		return self.vegetarian
 
-class Entree(FoodItem):
+class Entre(FoodItem):
 	pass
 class Appetizer(FoodItem):
 	pass

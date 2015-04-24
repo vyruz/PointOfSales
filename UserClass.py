@@ -16,3 +16,8 @@ class User:
 			if(order.getID() == ID):
 				return order
 		return None
+
+	def removeOrder(self, ID):
+		for order in self.__orders:
+			if(order.getID() == ID):
+				self.__orders.remove(order)

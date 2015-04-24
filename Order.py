@@ -8,7 +8,7 @@ class Order:
     # returns total cost of bill, including tax
     def calculateBill(self):
         total = 0
-        tax = 1
+        tax = 1.08
         for item in self.__items:
             total += item.getPrice()
         return total * tax 
