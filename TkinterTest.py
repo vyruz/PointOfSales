@@ -1,7 +1,10 @@
 from Tkinter import *
 from MenuItemSubClass import *
 from Order import *
+<<<<<<< Updated upstream
 #from Test import *
+=======
+>>>>>>> Stashed changes
 from UserClass import *
 import tkMessageBox
 
@@ -21,6 +24,7 @@ def orderWindow(order):
 
 	frame1 = Frame(root, bd = 100)
 	frame1.pack()
+<<<<<<< Updated upstream
 	
 	#create items to be added to order
 	#this should be done with a flyweight or something
@@ -41,6 +45,13 @@ def orderWindow(order):
 	F1.pack()
 	F2.pack()
 	D1.pack()
+=======
+	user = User()
+	order = user.CreateOrder()
+	B=Button(root,text='Burrito', command=AddBurrito)
+	C=Button(root,text='View Order', command=ViewOrder)
+	B.pack()
+>>>>>>> Stashed changes
 	C.pack()
 	D.pack()
 
@@ -54,6 +65,7 @@ def editPromptWindow(order):
 
 	Button(root, text = "Edit", command = lambda: orderWindow(order)).grid(row=4)
 
+<<<<<<< Updated upstream
 def newPromptWindow(order):
 	root = Tk()
 	root.title("Order Does Not Exist")
@@ -63,6 +75,15 @@ def newPromptWindow(order):
 	Label(root, text = "If not, just close this window.").grid(row=2)
 
 	Button(root, text = "Create new order", command = lambda: orderWindow(order)).grid(row=4)
+=======
+def AddBurrito():
+	Burrito = Entree('Burrito',10,'Guac',True, True)
+	order.addItem(Burrito)
+	tkMessageBox.showinfo("","Burrito Added to Order")
+
+def ViewOrder():
+	tkMessageBox.showinfo("","The Order Contains: " % order.printItems())
+>>>>>>> Stashed changes
 
 def newOrder():
 	orderID = e1.get()
