@@ -9,9 +9,6 @@ import tkMessageBox
 user = User()
 #order = None
 
-def ShowEntry():
-	tkMessageBox.showinfo("Show Order Number", "Order Number: %s" % (e1.get()))
-
 def orderWindow(order):
 	root = Tk()
 	
