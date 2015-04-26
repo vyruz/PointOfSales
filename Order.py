@@ -19,6 +19,9 @@ class Order:
     def removeItem(self, item):
         self.__items.remove(item)
 
+    def removeItemIndex(self, index):
+        del self.__items[index]
+
     def getItems(self):
         return self.__items
 

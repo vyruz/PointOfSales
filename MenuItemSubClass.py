@@ -18,8 +18,8 @@ class Entre(FoodItem):
 	pass
 class Appetizer(FoodItem):
 	pass
-class Dessert(FoodItem):
-	pass
+# class Dessert(FoodItem):
+# 	pass
 class DrinkItem(MenuItem):
 	def __init__ (self, name, cost, com):
 		self.name = name
