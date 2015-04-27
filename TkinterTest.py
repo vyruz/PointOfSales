@@ -5,14 +5,11 @@ from Order import *
 from UserClass import *
 import tkMessageBox
 
-#This should all be shoved into a class called "App" or something generic
-class App:
-	
+
+class App:	
 
 	def __init__(self):
-		#Here's where shit actually starts
-
-		self.orderList = []
+		#create the user. Orders will be associated with/stored in this user
 		self.user = User()
 
 		master = Tk()
@@ -20,18 +17,10 @@ class App:
 		frame = Frame(master, bd = 100)
 		frame.pack()
 
-		#have to figure out formatting so this text doesn't look like crap
-		#Label(frame, text = "Enter a new order number to create a new order or an").grid(row=0, column=1)
-		#Label(frame, text = "existing order number to edit that order").grid(row=1, column=1)
-
 		Label (frame, text = "Order Number").grid(row=2)
 
 		self.e1 = Entry(frame)
 		self.e1.grid(row=2, column=1)
-
-		#make live list of order. This should go in the order window
-		#listbox = Listbox(frame, selectmode = EXTENDED)
-		#listbox.grid(row=2, column=2)
 
 		Button(frame,text='Quit', command = frame.quit).grid(row = 3, column = 0, sticky=W, pady = 3)
 		#Create a new order for the user and open a window to edit it
@@ -47,7 +36,7 @@ class App:
 		#check if there's already an order with this ID
 		if(order == None):
 			#add order to user's list of orders
-			self.order = self.user.createOrder(orderID)
+			order = self.user.createOrder(orderID)
 			self.orderWindow(order)
 		#if this order already exists, ask if user wants to edit or go back
 		else:
@@ -59,7 +48,7 @@ class App:
 		#check if there is already an order with this ID
 		if(order == None):
 			#create a new order to edit
-			newOrder = user.createOrder(orderID)
+			newOrder = self.user.createOrder(orderID)
 			self.newPromptWindow(newOrder)
 		else:
 			#edit an existing order
@@ -71,9 +60,9 @@ class App:
 
 		Label(root, text = "An order with this number already exists.").grid(row=0)
 		Label(root, text = "Would you like to edit the existing order?").grid(row=1)
-		Label(root, text = "If not, just close this window.").grid(row=2)
 
-		Button(root, text = "Edit", command = lambda: self.orderWindow(order)).grid(row=4)
+		Button(root, text = "Edit", command = lambda: self.orderWindow(order)).grid(row=3)
+		Button(root, text = "Close", command = root.destroy).grid(row = 4)
 
 	def newPromptWindow(self, order):
 		root = Tk()
@@ -81,10 +70,10 @@ class App:
 
 		Label(root, text = "An order with this number does not exist.").grid(row=0)
 		Label(root, text = "Would you like to create a new order?").grid(row=1)
-		Label(root, text = "If not, just close this window.").grid(row=2)
 
-		Button(root, text = "Create new order", command = lambda: self.orderWindow(order)).grid(row=4)
-		
+		Button(root, text = "Create new order", command = lambda: self.orderWindow(order)).grid(row=3)
+		Button(root, text = "Close", command = root.destroy).grid(row = 4)
+
 	def orderWindow(self, order):
 		root = Tk()
 		
@@ -105,7 +94,7 @@ class App:
 		comBox.grid(row = 0, column = 3)
 
 		#populate the listbox
-		for item in self.order.getItems():
+		for item in order.getItems():
 			listItem = item.getName() + " - $" + str(item.getPrice()) + " - " + item.getComments()
 			listbox.insert(END, listItem)
 
@@ -132,7 +121,6 @@ class App:
 		beerRita = HardDrink("Beer Rita", 7, 10, "")
 
 		#sorry
-		# :)
 		#food items
 		E1 = Button(root, text = banzaiBurger.getName(), command = lambda: self.addComment(order, banzaiBurger, comBox, listbox)).grid(row = 2, column = 0)
 		E2 = Button(root, text = whiskeyBurger.getName(), command = lambda: self.addComment(order, whiskeyBurger, comBox, listbox)).grid(row = 3, column = 0)
@@ -154,9 +142,10 @@ class App:
 		H2 = Button(root, text = baileysShake.getName(), command = lambda: self.addComment(order, baileysShake, comBox, listbox)).grid(row = 3, column = 3)
 		H3 = Button(root, text = beerRita.getName(), command = lambda: self.addComment(order, beerRita, comBox, listbox)).grid(row = 4, column = 3)
 
-		#view the order or the total cost in a pop up window
+		#remove items, get the total cost in a pop up window or close the window
 		C = Button(root, text = 'Calculate Bill', command = lambda: self.calcBill(order)).grid(row = 0, column = 0, sticky = E)
 		R = Button(root, text = "Remove", command = lambda: self.deleteItem(order, listbox)).grid(row = 0, column = 0, sticky = W)
+		Cl = Button(root, text = "Close", command = root.destroy).grid(row = 0, column = 0, sticky = N)
 
 	def addComment(self, order, item, comBox, listbox):
 		#actually add the comment, then close the window
@@ -164,24 +153,15 @@ class App:
 		self.addItem(order, item, listbox)
 		comBox.delete(0, "end")
 
-	def ViewOrder():
-		tkMessageBox.showinfo("","The Order Contains: " % self.order.printItems())
-
 	def addItem(self, order, item, listbox):
 		#add to order
-		self.order.addItem(item)
+		order.addItem(item)
 
 		#add to listbox
 		listItem = item.getName() + " - $" + str(item.getPrice()) + " - " + item.getComments()
 		listbox.insert(END, listItem)
 
-		#add to secondary list
-		self.orderList.append
 
-	####################THIS ONLY REMOVES IT FROM THE LISTBOX, NOT THE ACTUAL ORDER. Don't know how to pass
-	####################in the item to be removed because the only way the user identifies the item to remove
-	####################is by highlighting it in the listbox, but they're only highlighting text, there's no
-	####################item associated with it
 	def deleteItem(self, order, listbox):
 	    
 	    #remove from listbox
@@ -190,15 +170,14 @@ class App:
 	    for i in items :
 	        index = int(i) - pos
 	        listbox.delete( index,index )
-	        self.order.removeItemIndex(index)
+	        #self.order.removeItemIndex(index)
+	        order.removeItemIndex(index)
 	        pos += 1
-
-	def viewOrder(self, order):
-		tkMessageBox.showinfo("Order", self.order.printItems())
 
 	def calcBill(self, order):
 		#used when order is complete, shows total and removes order from list
-		total = "$" + str(self.order.calculateBill())
+		#total = "$" + str(self.order.calculateBill())
+		total = "$" + str(order.calculateBill())
 		tkMessageBox.showinfo("Bill", total)
 
 		#user.removeOrder(order.getID())
