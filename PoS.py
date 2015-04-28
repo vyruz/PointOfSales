@@ -122,25 +122,25 @@ class App:
 
 		#sorry
 		#food items
-		E1 = Button(root, text = banzaiBurger.getName(), command = lambda: self.addComment(order, banzaiBurger, comBox, listbox)).grid(row = 2, column = 0, sticky = E+W)
-		E2 = Button(root, text = whiskeyBurger.getName(), command = lambda: self.addComment(order, whiskeyBurger, comBox, listbox)).grid(row = 3, column = 0, sticky = E+W))
-		E3 = Button(root, text = shroomBurger.getName(), command = lambda: self.addComment(order, shroomBurger, comBox, listbox)).grid(row = 4, column = 0, sticky = E+W))
-		E4 = Button(root, text = baconBurger.getName(), command = lambda: self.addComment(order, baconBurger, comBox, listbox)).grid(row = 5, column = 0, sticky = E+W))
+		E1 = Button(root, text = banzaiBurger.getName(), command = lambda: self.addComment(order, banzaiBurger, comBox, listbox)).grid(row = 2, column = 0, sticky = E+W
+		E2 = Button(root, text = whiskeyBurger.getName(), command = lambda: self.addComment(order, whiskeyBurger, comBox, listbox)).grid(row = 3, column = 0, sticky = E+W)
+		E3 = Button(root, text = shroomBurger.getName(), command = lambda: self.addComment(order, shroomBurger, comBox, listbox)).grid(row = 4, column = 0, sticky = E+W)
+		E4 = Button(root, text = baconBurger.getName(), command = lambda: self.addComment(order, baconBurger, comBox, listbox)).grid(row = 5, column = 0, sticky = E+W)
 
-		A1 = Button(root, text = fries.getName(), command = lambda: self.addComment(order, fries, comBox, listbox)).grid(row = 2, column = 1, sticky = E+W))
-		A2 = Button(root, text = onionRings.getName(), command = lambda: self.addComment(order, onionRings, comBox, listbox)).grid(row = 3, column = 1, sticky = E+W))
-		A3 = Button(root, text = chips.getName(), command = lambda: self.addComment(order, chips, comBox, listbox)).grid(row = 4, column = 1, sticky = E+W))
-		A4 = Button(root, text = chili.getName(), command = lambda: self.addComment(order, chili, comBox, listbox)).grid(row = 5, column = 1, sticky = E+W))
+		A1 = Button(root, text = fries.getName(), command = lambda: self.addComment(order, fries, comBox, listbox)).grid(row = 2, column = 1, sticky = E+W)
+		A2 = Button(root, text = onionRings.getName(), command = lambda: self.addComment(order, onionRings, comBox, listbox)).grid(row = 3, column = 1, sticky = E+W)
+		A3 = Button(root, text = chips.getName(), command = lambda: self.addComment(order, chips, comBox, listbox)).grid(row = 4, column = 1, sticky = E+W)
+		A4 = Button(root, text = chili.getName(), command = lambda: self.addComment(order, chili, comBox, listbox)).grid(row = 5, column = 1, sticky = E+W)
 
-		S1 = Button(root, text = coke.getName(), command = lambda: self.addComment(order, coke, comBox, listbox)).grid(row = 2, column = 2, sticky = E+W))
-		S2 = Button(root, text = drPepper.getName(), command = lambda: self.addComment(order, drPepper, comBox, listbox)).grid(row = 3, column = 2, sticky = E+W))
-		S3 = Button(root, text = sprite.getName(), command = lambda: self.addComment(order, sprite, comBox, listbox)).grid(row = 4, column = 2, sticky = E+W))
-		S4 = Button(root, text = rootBeer.getName(), command = lambda: self.addComment(order, rootBeer, comBox, listbox)).grid(row = 5, column = 2, sticky = E+W))
-		S5 = Button(root, text = lemonade.getName(), command = lambda: self.addComment(order, lemonade, comBox, listbox)).grid(row = 6, column = 2, sticky = E+W))
+		S1 = Button(root, text = coke.getName(), command = lambda: self.addComment(order, coke, comBox, listbox)).grid(row = 2, column = 2, sticky = E+W)
+		S2 = Button(root, text = drPepper.getName(), command = lambda: self.addComment(order, drPepper, comBox, listbox)).grid(row = 3, column = 2, sticky = E+W)
+		S3 = Button(root, text = sprite.getName(), command = lambda: self.addComment(order, sprite, comBox, listbox)).grid(row = 4, column = 2, sticky = E+W)
+		S4 = Button(root, text = rootBeer.getName(), command = lambda: self.addComment(order, rootBeer, comBox, listbox)).grid(row = 5, column = 2, sticky = E+W)
+		S5 = Button(root, text = lemonade.getName(), command = lambda: self.addComment(order, lemonade, comBox, listbox)).grid(row = 6, column = 2, sticky = E+W)
 
-		H1 = Button(root, text = beerShake.getName(), command = lambda: self.addComment(order, beerShake, comBox, listbox)).grid(row = 2, column = 3, sticky = E+W))
-		H2 = Button(root, text = baileysShake.getName(), command = lambda: self.addComment(order, baileysShake, comBox, listbox)).grid(row = 3, column = 3, sticky = E+W))
-		H3 = Button(root, text = beerRita.getName(), command = lambda: self.addComment(order, beerRita, comBox, listbox)).grid(row = 4, column = 3, sticky = E+W))
+		H1 = Button(root, text = beerShake.getName(), command = lambda: self.addComment(order, beerShake, comBox, listbox)).grid(row = 2, column = 3, sticky = E+W)
+		H2 = Button(root, text = baileysShake.getName(), command = lambda: self.addComment(order, baileysShake, comBox, listbox)).grid(row = 3, column = 3, sticky = E+W)
+		H3 = Button(root, text = beerRita.getName(), command = lambda: self.addComment(order, beerRita, comBox, listbox)).grid(row = 4, column = 3, sticky = E+W)
 
 		#remove items, get the total cost in a pop up window or close the window
 		C = Button(root, text = 'Calculate Bill', command = lambda: self.calcBill(order)).grid(row = 0, column = 0, sticky = E)
