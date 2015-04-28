@@ -122,7 +122,7 @@ class App:
 
 		#sorry
 		#food items
-		E1 = Button(root, text = banzaiBurger.getName(), command = lambda: self.addComment(order, banzaiBurger, comBox, listbox)).grid(row = 2, column = 0, sticky = E+W
+		E1 = Button(root, text = banzaiBurger.getName(), command = lambda: self.addComment(order, banzaiBurger, comBox, listbox)).grid(row = 2, column = 0, sticky = E+W)
 		E2 = Button(root, text = whiskeyBurger.getName(), command = lambda: self.addComment(order, whiskeyBurger, comBox, listbox)).grid(row = 3, column = 0, sticky = E+W)
 		E3 = Button(root, text = shroomBurger.getName(), command = lambda: self.addComment(order, shroomBurger, comBox, listbox)).grid(row = 4, column = 0, sticky = E+W)
 		E4 = Button(root, text = baconBurger.getName(), command = lambda: self.addComment(order, baconBurger, comBox, listbox)).grid(row = 5, column = 0, sticky = E+W)
